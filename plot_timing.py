@@ -55,6 +55,4 @@ for f in output_list:
     df = pd.read_csv("{}/{}/disp.csv".format(top_dir,f))
     plt.plot(df["step"].values,df["time"].values,label=f)
 
-
-plt.legend()
 plt.show()

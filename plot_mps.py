@@ -44,7 +44,6 @@ width = 5.9006*0.5
 height = width / ratio
 scale = 1
 
-
 file_list = ["timing_mps.csv"]
 for fname in file_list:
     fig = plt.figure(figsize=(scale*width,scale*height),dpi=200)
@@ -54,7 +53,9 @@ for fname in file_list:
     total_mpiter = df["mp-total"].values * df["iters"].values
     time = df["time"].values
     mps = df["mps"].values
-    plt.scatter(mps,total_mpiter/time)
+    throughput = total_mpiter/time
+    print(throughput)
+    plt.scatter(mps,throughput)
     plt.xlabel("MP per dimension per element")
     plt.ylabel("MP throughout (mp/s)")
     # plt.xscale("log")

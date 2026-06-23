@@ -58,10 +58,12 @@ for fname in file_list:
     total_mpiter = df["mp-total"].values * df["iters"].values
     time = df["time"].values
     threads = df["threads"].values
-    plt.scatter(threads,total_mpiter/time)
+    throughput = total_mpiter/time
+    print(throughput)
+    plt.scatter(threads,throughput)
     plt.xlabel("Thread count")
     plt.ylabel("MP throughout (mp/s)")
     # plt.xscale("log")
-    plt.legend()
+    # plt.legend()
 plt.savefig("threads.pdf")
 plt.show()
